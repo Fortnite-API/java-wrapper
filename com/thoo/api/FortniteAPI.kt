@@ -1,9 +1,12 @@
 package com.thoo.api
 
+import com.thoo.api.match.MatchBuilder
 import com.thoo.api.model.*
 import com.thoo.api.service.FortniteAPIService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.reflect.Field
+import java.util.*
 
 class FortniteAPI {
 
@@ -47,18 +50,22 @@ class FortniteAPI {
 
     fun getNewsCreative(language: Language): SepNewsResponse? = service?.getNewsCreative(language.toString().toLowerCase())?.execute()?.body();
 
-    /*fun getMatched(matchBuilder: MatchBuilder):BRCosmeticsResponse? {
-        val fields: Array<Field> = matchBuilder::javaClass.get().declaredFields
-        val queryMap: HashMap<String, Any> = HashMap()
+    fun getMatchedCosmetics(matchBuilder: MatchBuilder):BRCosmeticsResponse? {
+        val fields: Array<Field> = matchBuilder.javaClass.declaredFields
+        val queryMapString: HashMap<String, String> = HashMap()
+        val queryMapBool: HashMap<String, Boolean> = HashMap()
         fields.forEach {
-            if(it.isAccessible){
-                val value: Any? = it.get(matchBuilder)
-                if(value != null){
-                    queryMap[it.name] = value
+            it.isAccessible = true
+            val value: Any? = it.get(matchBuilder)
+            if (value != null) {
+                if (value is String) {
+                    queryMapString[it.name] = value
+                } else if (value is Boolean) {
+                    queryMapBool[it.name] = value
                 }
             }
         }
-        return service?.matchCosmetics(queryMap)?.execute()?.body()
-    }*/
+        return service?.matchCosmetics(queryMapString, queryMapBool)?.execute()?.body()
+    }
 
 }

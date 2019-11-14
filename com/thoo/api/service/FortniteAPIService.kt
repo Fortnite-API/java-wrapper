@@ -61,8 +61,8 @@ interface FortniteAPIService {
     fun getNewsCreative(@Query("language") language: String): Call<SepNewsResponse>;
 
     @GET("/cosmetics/br/search/all")
-    fun matchCosmetics(@QueryMap map: Map<String, Any>): Call<BRCosmeticsResponse>
+    fun matchCosmetics(@QueryMap map: Map<String, String>, @QueryMap map2: Map<String, Boolean>): Call<BRCosmeticsResponse>
 
     @GET("/cosmetics/br/search/all")
-    fun matchCosmetics(@QueryMap map: Map<String, Any>, @Query("language") language: String): Call<BRCosmeticsResponse>
+    fun matchCosmetics(@QueryMap map: Map<String, String>, @QueryMap map2: Map<String, Boolean>, @Query("language") language: String): Call<BRCosmeticsResponse>
 }

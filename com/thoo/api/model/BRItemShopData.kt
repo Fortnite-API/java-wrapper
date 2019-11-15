@@ -6,7 +6,7 @@ class BRItemShopData {
 
     val hash: String = ""
     val date: Date? = null
-    val featured: Array<BRItem>? = null
-    val daily: Array<BRItem>? = null
+    val featured: Array<BRShopEntry>? = null
+    val daily: Array<BRShopEntry>? = null
 
 }

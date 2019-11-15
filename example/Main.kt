@@ -12,8 +12,4 @@ fun main(args :  Array<String>){
         println(it.id)
     }
 
-    api.getItemShop()?.data?.featured?.forEach {
-        println("${it.isBundle} : ${it.sortPriority}")
-    }
-
 }

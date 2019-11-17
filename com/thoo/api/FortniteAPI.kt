@@ -18,39 +18,39 @@ class FortniteAPI {
         service = retrofit?.create(FortniteAPIService::class.java)
     }
 
-    fun getCosmeticByID(id: String): BRCosmeticResponse? = service?.getCosmeticByID(id)?.execute()?.body()
+    fun getCosmeticByID(id: String): BaseResponse<BRCosmeticData>? = service?.getCosmeticByID(id)?.execute()?.body()
 
-    fun getCosmeticByID(id: String, language: Language): BRCosmeticResponse? = service?.getCosmeticByID(id, language.toString().toLowerCase())?.execute()?.body()
+    fun getCosmeticByID(id: String, language: Language): BaseResponse<BRCosmeticData>? = service?.getCosmeticByID(id, language.toString().toLowerCase())?.execute()?.body()
 
-    fun getAllCosmetics(): BRCosmeticsResponse? = service?.getAllCosmetics()?.execute()?.body()
+    fun getAllCosmetics(): BaseResponse<Array<BRCosmeticData>>? = service?.getAllCosmetics()?.execute()?.body()
 
-    fun getAllCosmetics(language: Language): BRCosmeticsResponse? = service?.getAllCosmetics(language.toString().toLowerCase())?.execute()?.body()
+    fun getAllCosmetics(language: Language): BaseResponse<Array<BRCosmeticData>>? = service?.getAllCosmetics(language.toString().toLowerCase())?.execute()?.body()
 
-    fun getCosmeticsByID(ids: Array<String>): BRCosmeticsResponse? = service?.getCosmeticsByID(ids)?.execute()?.body()
+    fun getCosmeticsByID(ids: Array<String>): BaseResponse<Array<BRCosmeticData>>? = service?.getCosmeticsByID(ids)?.execute()?.body()
 
-    fun getCosmeticsByID(ids: Array<String>, language: Language): BRCosmeticsResponse? = service?.getCosmeticsByID(ids, language.toString().toLowerCase())?.execute()?.body()
+    fun getCosmeticsByID(ids: Array<String>, language: Language): BaseResponse<Array<BRCosmeticData>>? = service?.getCosmeticsByID(ids, language.toString().toLowerCase())?.execute()?.body()
 
-    fun getItemShop(): BRItemShop? = service?.getItemShop()?.execute()?.body();
+    fun getItemShop(): BaseResponse<BRItemShopData>? = service?.getItemShop()?.execute()?.body();
 
-    fun getItemShop(language: Language): BRItemShop? = service?.getItemShop(language.toString().toLowerCase())?.execute()?.body();
+    fun getItemShop(language: Language): BaseResponse<BRItemShopData>? = service?.getItemShop(language.toString().toLowerCase())?.execute()?.body();
 
-    fun getNews(): NewsResponse? = service?.getNews()?.execute()?.body();
+    fun getNews(): BaseResponse<NewsTab>? = service?.getNews()?.execute()?.body();
 
-    fun getNews(language: Language): NewsResponse? = service?.getNews(language.toString().toLowerCase())?.execute()?.body();
+    fun getNews(language: Language): BaseResponse<NewsData>? = service?.getNews(language.toString().toLowerCase())?.execute()?.body();
 
-    fun getNewsBR(): SepNewsResponse? = service?.getNewsBR()?.execute()?.body();
+    fun getNewsBR(): BaseResponse<NewsTab>? = service?.getNewsBR()?.execute()?.body();
 
-    fun getNewsBR(language: Language): SepNewsResponse? = service?.getNewsBR(language.toString().toLowerCase())?.execute()?.body();
+    fun getNewsBR(language: Language): BaseResponse<NewsTab>? = service?.getNewsBR(language.toString().toLowerCase())?.execute()?.body();
 
-    fun getNewsSTW(): SepNewsResponse? = service?.getNewsSTW()?.execute()?.body();
+    fun getNewsSTW(): BaseResponse<NewsTab>? = service?.getNewsSTW()?.execute()?.body();
 
-    fun getNewsSTW(language: Language): SepNewsResponse? = service?.getNewsSTW(language.toString().toLowerCase())?.execute()?.body();
+    fun getNewsSTW(language: Language): BaseResponse<NewsTab>? = service?.getNewsSTW(language.toString().toLowerCase())?.execute()?.body();
 
-    fun getNewsCreative(): SepNewsResponse? = service?.getNewsCreative()?.execute()?.body();
+    fun getNewsCreative(): BaseResponse<NewsTab>? = service?.getNewsCreative()?.execute()?.body();
 
-    fun getNewsCreative(language: Language): SepNewsResponse? = service?.getNewsCreative(language.toString().toLowerCase())?.execute()?.body();
+    fun getNewsCreative(language: Language): BaseResponse<NewsTab>? = service?.getNewsCreative(language.toString().toLowerCase())?.execute()?.body();
 
-    fun getMatchedCosmetics(matchBuilder: MatchBuilder):BRCosmeticsResponse? {
+    fun getMatchedCosmetics(matchBuilder: MatchBuilder): BaseResponse<Array<BRCosmeticData>>? {
         val fields: Array<Field> = matchBuilder.javaClass.declaredFields
         val queryMapString: HashMap<String, String> = HashMap()
         val queryMapBool: HashMap<String, Boolean> = HashMap()

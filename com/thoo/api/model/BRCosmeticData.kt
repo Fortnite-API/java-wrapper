@@ -12,6 +12,8 @@ class BRCosmeticData {
     val name: String = ""
     val shortDescription: String = ""
     val description: String = ""
+    val displayRarity: String = ""
+    val setText: String = ""
     val set: String = ""
     val series: String = ""
     val backendSeries: String = ""

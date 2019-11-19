@@ -1,20 +1,32 @@
 package com.thoo.api
 
+import com.thoo.api.interceptors.DefaultInterceptor
 import com.thoo.api.match.MatchBuilder
 import com.thoo.api.model.*
 import com.thoo.api.service.FortniteAPIService
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.reflect.Field
 import java.util.*
 
-class FortniteAPI {
+class FortniteAPI constructor(val key: String) {
+    constructor(): this("null")
 
     private var retrofit: Retrofit? = null
     private var service: FortniteAPIService? = null
+    private var httpClient: OkHttpClient? = null
 
     init {
-        retrofit = Retrofit.Builder().baseUrl("https://fortnite-api.com").addConverterFactory(GsonConverterFactory.create()).build()
+        httpClient = OkHttpClient.Builder()
+            .addInterceptor(DefaultInterceptor(key)).build()
+
+        retrofit = Retrofit.Builder()
+            .baseUrl("https://fortnite-api.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(httpClient)
+            .build()
+
         service = retrofit?.create(FortniteAPIService::class.java)
     }
 

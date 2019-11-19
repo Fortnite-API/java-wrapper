@@ -21,6 +21,18 @@ class MatchBuilder {
     private var hasVariants: Boolean? = null
     private var hasGameplayTags: Boolean? = null
     private var gameplayTag: String? = null
+    private var displayRarity: String? = null
+    private var setText: String? = null
+
+    fun setDisplayRarity(displayRarity: String):MatchBuilder {
+        this.displayRarity = displayRarity
+        return this
+    }
+
+    fun setText(setText: String):MatchBuilder {
+        this.setText = setText
+        return this
+    }
 
     fun setType(type: String):MatchBuilder {
         this.type = type

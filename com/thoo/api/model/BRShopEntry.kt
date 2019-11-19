@@ -5,6 +5,8 @@ class BRShopEntry {
     val regularPrice: Int = 0
     val finalPrice: Int = 0
     val isBundle: Boolean = false
+    val refundable: Boolean = false
+    val giftable: Boolean = false
     val panel: Int = 0
     val sortPriority: Int = 0
     val banner:String = ""

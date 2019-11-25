@@ -6,9 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 import retrofit2.http.QueryMap
-import okhttp3.ResponseBody
-
-
 
 interface FortniteAPIService {
 
@@ -65,4 +62,13 @@ interface FortniteAPIService {
 
     @GET("/cosmetics/br/search/all")
     fun matchCosmetics(@QueryMap map: Map<String, String>, @QueryMap map2: Map<String, Boolean>, @Query("language") language: String): Call<BaseResponse<Array<BRCosmeticData>>>
+
+    @GET("creatorcode")
+    fun getCreator(@Query("slug") slug: String): Call<BaseResponse<CreatorCode>>
+
+    @GET("creatorcode/search")
+    fun getMatchingCreator(@Query("slug") slug: String): Call<BaseResponse<CreatorCode>>
+
+    @GET("creatorcode/search/all")
+    fun getMatchingCreators(@Query("slug") slug: String): Call<BaseResponse<Array<CreatorCode>>>
 }

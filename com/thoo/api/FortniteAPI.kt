@@ -62,6 +62,12 @@ class FortniteAPI constructor(val key: String) {
 
     fun getNewsCreative(language: Language): BaseResponse<NewsTab>? = service?.getNewsCreative(language.toString().toLowerCase())?.execute()?.body();
 
+    fun getCreator(slug: String): BaseResponse<CreatorCode>? = service?.getCreator(slug)?.execute()?.body()
+
+    fun getMatchingCreator(slug: String): BaseResponse<CreatorCode>? = service?.getMatchingCreator(slug)?.execute()?.body()
+
+    fun getMatchingCreators(slug: String): BaseResponse<Array<CreatorCode>>? = service?.getMatchingCreators(slug)?.execute()?.body()
+
     fun getMatchedCosmetics(matchBuilder: MatchBuilder): BaseResponse<Array<BRCosmeticData>>? {
         val fields: Array<Field> = matchBuilder.javaClass.declaredFields
         val queryMapString: HashMap<String, String> = HashMap()

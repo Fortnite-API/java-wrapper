@@ -1,6 +1,6 @@
-package com.thoo.api.match
+package com.thoo.api.search
 
-class MatchBuilder {
+class SearchBuilder {
 
     private var type: String? = null
     private var backendType: String? = null
@@ -24,107 +24,107 @@ class MatchBuilder {
     private var displayRarity: String? = null
     private var setText: String? = null
 
-    fun setDisplayRarity(displayRarity: String):MatchBuilder {
+    fun setDisplayRarity(displayRarity: String):SearchBuilder {
         this.displayRarity = displayRarity
         return this
     }
 
-    fun setText(setText: String):MatchBuilder {
+    fun setText(setText: String):SearchBuilder {
         this.setText = setText
         return this
     }
 
-    fun setType(type: String):MatchBuilder {
+    fun setType(type: String):SearchBuilder {
         this.type = type
         return this
     }
 
-    fun setBackendType(backendType: String):MatchBuilder {
+    fun setBackendType(backendType: String):SearchBuilder {
         this.backendType = backendType
         return this
     }
 
-    fun setRarity(rarity: String):MatchBuilder {
+    fun setRarity(rarity: String):SearchBuilder {
         this.rarity = rarity
         return this
     }
 
-    fun setBackendRarity(backendRarity: String):MatchBuilder {
+    fun setBackendRarity(backendRarity: String):SearchBuilder {
         this.backendRarity = backendRarity
         return this
     }
 
-    fun setName(name: String):MatchBuilder {
+    fun setName(name: String):SearchBuilder {
         this.name = name
         return this
     }
 
-    fun setShortDescription(shortDescription: String):MatchBuilder {
+    fun setShortDescription(shortDescription: String):SearchBuilder {
         this.shortDescription = shortDescription
         return this
     }
 
-    fun setDescription(description: String):MatchBuilder {
+    fun setDescription(description: String):SearchBuilder {
         this.description = description
         return this
     }
 
-    fun setSet(set: String):MatchBuilder {
+    fun setSet(set: String):SearchBuilder {
         this.set = set
         return this
     }
 
-    fun setSeries(series: String):MatchBuilder {
+    fun setSeries(series: String):SearchBuilder {
         this.series = series
         return this
     }
 
-    fun setBackendSeries(backendSeries: String):MatchBuilder {
+    fun setBackendSeries(backendSeries: String):SearchBuilder {
         this.backendSeries = backendSeries
         return this
     }
 
-    fun setSmallIcon(hasSmallIcon: Boolean):MatchBuilder {
+    fun setSmallIcon(hasSmallIcon: Boolean):SearchBuilder {
         this.hasSmallIcon = hasSmallIcon
         return this
     }
 
-    fun setIcon(hasIcon: Boolean):MatchBuilder {
+    fun setIcon(hasIcon: Boolean):SearchBuilder {
         this.hasIcon = hasIcon
         return this
     }
 
-    fun setFeaturedImage(hasFeaturedImage: Boolean):MatchBuilder {
+    fun setFeaturedImage(hasFeaturedImage: Boolean):SearchBuilder {
         this.hasFeaturedImage = hasFeaturedImage
         return this
     }
 
-    fun setBackgroundImage(hasBackgroundImage: Boolean):MatchBuilder {
+    fun setBackgroundImage(hasBackgroundImage: Boolean):SearchBuilder {
         this.hasBackgroundImage = hasBackgroundImage
         return this
     }
 
-    fun setCovertArt(hasCovertArt: Boolean):MatchBuilder {
+    fun setCovertArt(hasCovertArt: Boolean):SearchBuilder {
         this.hasCovertArt = hasCovertArt
         return this
     }
 
-    fun setDecal(hasDecal: Boolean):MatchBuilder {
+    fun setDecal(hasDecal: Boolean):SearchBuilder {
         this.hasDecal = hasDecal
         return this
     }
 
-    fun setVariants(hasVariants: Boolean):MatchBuilder {
+    fun setVariants(hasVariants: Boolean):SearchBuilder {
         this.hasVariants = hasVariants
         return this
     }
 
-    fun setGameplayTags(hasGameplayTags: Boolean):MatchBuilder {
+    fun setGameplayTags(hasGameplayTags: Boolean):SearchBuilder {
         this.hasGameplayTags = hasGameplayTags
         return this
     }
 
-    fun setGameplayTag(gameplayTag: String):MatchBuilder {
+    fun setGameplayTag(gameplayTag: String):SearchBuilder {
         this.gameplayTag = gameplayTag
         return this
     }

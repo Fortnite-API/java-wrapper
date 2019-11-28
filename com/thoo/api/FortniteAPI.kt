@@ -1,7 +1,7 @@
 package com.thoo.api
 
 import com.thoo.api.interceptors.DefaultInterceptor
-import com.thoo.api.match.MatchBuilder
+import com.thoo.api.search.SearchBuilder
 import com.thoo.api.model.*
 import com.thoo.api.service.FortniteAPIService
 import okhttp3.OkHttpClient
@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.reflect.Field
 import java.util.*
+import kotlin.collections.ArrayList
 
 class FortniteAPI constructor(val key: String) {
     constructor(): this("null")
@@ -68,7 +69,7 @@ class FortniteAPI constructor(val key: String) {
 
     fun getMatchingCreators(slug: String): BaseResponse<Array<CreatorCode>>? = service?.getMatchingCreators(slug)?.execute()?.body()
 
-    fun getMatchedCosmetics(matchBuilder: MatchBuilder): BaseResponse<Array<BRCosmeticData>>? {
+    fun getMatchedCosmetics(matchBuilder: SearchBuilder): BaseResponse<Array<BRCosmeticData>>? {
         val fields: Array<Field> = matchBuilder.javaClass.declaredFields
         val queryMapString: HashMap<String, String> = HashMap()
         val queryMapBool: HashMap<String, Boolean> = HashMap()
@@ -85,5 +86,33 @@ class FortniteAPI constructor(val key: String) {
         }
         return service?.matchCosmetics(queryMapString, queryMapBool)?.execute()?.body()
     }
+
+    fun getCosmeticsByName(vararg names: String): ArrayList<BRCosmeticData> {
+        val cosmetics = ArrayList<BRCosmeticData>()
+        getAllCosmetics()?.data?.forEach {
+            if(names.contains(it.name)){
+                cosmetics.add(it)
+            }
+        }
+        return cosmetics
+    }
+
+    fun getCosmeticsByName(vararg names: String, language: Language): ArrayList<BRCosmeticData> {
+        val cosmetics = ArrayList<BRCosmeticData>()
+        getAllCosmetics(language)?.data?.forEach {
+            if(names.contains(it.name)){
+                cosmetics.add(it)
+            }
+        }
+        return cosmetics
+    }
+
+    fun getCosmeticByName(name: String): BRCosmeticData? = getAllCosmetics()?.data?.filter {
+        it.name.toLowerCase() == name.toLowerCase()
+    }?.getOrNull(0)
+
+    fun getCosmeticByName(name: String, language: Language): BRCosmeticData? = getAllCosmetics(language)?.data?.filter {
+        it.name.toLowerCase() == name.toLowerCase()
+    }?.getOrNull(0)
 
 }

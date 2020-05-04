@@ -1,6 +1,7 @@
 package com.thoo.api;
 
 import com.thoo.api.endpoints.*;
+import com.thoo.api.enums.Language;
 import com.thoo.api.utils.HttpUtils;
 
 public final class FortniteAPIImpl implements FortniteAPI {
@@ -13,14 +14,14 @@ public final class FortniteAPIImpl implements FortniteAPI {
     private ShopEndpoint shopEndpoint;
     private NewsEndpoint newsEndpoint;
 
-    public FortniteAPIImpl(String apiKey){
+    public FortniteAPIImpl(String apiKey, Language defaultLanguage){
         this.apiKey = apiKey;
         new HttpUtils(this);
         this.aesEndpoint = new AESEndpoint();
         this.creatorCodeEndpoint = new CreatorCodeEndpoint();
-        this.cosmeticEndpoint = new CosmeticEndpoint();
-        this.shopEndpoint = new ShopEndpoint();
-        this.newsEndpoint = new NewsEndpoint();
+        this.cosmeticEndpoint = new CosmeticEndpoint(defaultLanguage);
+        this.shopEndpoint = new ShopEndpoint(defaultLanguage);
+        this.newsEndpoint = new NewsEndpoint(defaultLanguage);
     }
 
     public String getApiKey() {

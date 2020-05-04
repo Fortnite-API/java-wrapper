@@ -1,10 +1,8 @@
 package com.thoo.api.model;
 
-import com.google.gson.annotations.SerializedName;
+public final class BrCosmeticType {
 
-public enum BrCosmeticType {
-
-    @SerializedName("banner") BANNER,
+    /*@SerializedName("banner") BANNER,
     @SerializedName("backpack") BACKPACK,
     @SerializedName("contrail") CONTRAIL,
     @SerializedName("outfit") OUTFIT,
@@ -18,6 +16,11 @@ public enum BrCosmeticType {
     @SerializedName("pickaxe") PICKAXE,
     @SerializedName("shout") SHOUT,
     @SerializedName("spray") SPRAY,
-    @SerializedName("toy") TOY
+    @SerializedName("toy") TOY,
+    @BackendValue("AthenaCharacter") TEST;*/
+
+    public String value;
+    public String displayValue;
+    public String backendValue;
 
 }

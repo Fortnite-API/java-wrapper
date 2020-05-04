@@ -9,12 +9,12 @@ import com.thoo.api.utils.HttpUtils;
 
 public final class ShopEndpoint extends Endpoint<ShopService> {
 
-    public ShopEndpoint() {
-        super(ShopService.class);
+    public ShopEndpoint(Language defaultLanguage) {
+        super(ShopService.class, defaultLanguage);
     }
 
     public FortniteResponse<BaseModel<BrShop>> getShop(){
-        return HttpUtils.parse(service.shop());
+        return getShop(defaultLanguage);
     }
 
     public FortniteResponse<BaseModel<BrShop>> getShop(Language language){

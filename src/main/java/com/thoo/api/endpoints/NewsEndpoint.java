@@ -10,12 +10,12 @@ import com.thoo.api.utils.HttpUtils;
 
 public final class NewsEndpoint extends Endpoint<NewsService> {
 
-    public NewsEndpoint() {
-        super(NewsService.class);
+    public NewsEndpoint(Language defaultLanguage) {
+        super(NewsService.class, defaultLanguage);
     }
 
     public FortniteResponse<BaseModel<NewsCombined>> getNews(){
-        return HttpUtils.parse(service.getNews());
+        return getNews(defaultLanguage);
     }
 
     public FortniteResponse<BaseModel<NewsCombined>> getNews(Language language){
@@ -23,7 +23,7 @@ public final class NewsEndpoint extends Endpoint<NewsService> {
     }
 
     public FortniteResponse<BaseModel<NewsTab>> getNewsBr(){
-        return HttpUtils.parse(service.getNewsBr());
+        return getNewsBr(defaultLanguage);
     }
 
     public FortniteResponse<BaseModel<NewsTab>> getNewsBr(Language language){
@@ -31,7 +31,7 @@ public final class NewsEndpoint extends Endpoint<NewsService> {
     }
 
     public FortniteResponse<BaseModel<NewsTab>> getNewsStw(){
-        return HttpUtils.parse(service.getNewsStw());
+        return getNewsStw(defaultLanguage);
     }
 
     public FortniteResponse<BaseModel<NewsTab>> getNewsStw(Language language){
@@ -39,7 +39,7 @@ public final class NewsEndpoint extends Endpoint<NewsService> {
     }
 
     public FortniteResponse<BaseModel<NewsTab>> getNewsCreative(){
-        return HttpUtils.parse(service.getNewsCreative());
+        return getNewsCreative(defaultLanguage);
     }
 
     public FortniteResponse<BaseModel<NewsTab>> getNewsCreative(Language language){

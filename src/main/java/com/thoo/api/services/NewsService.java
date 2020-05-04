@@ -9,28 +9,28 @@ import retrofit2.http.Query;
 
 public interface NewsService {
 
-    @GET("/news")
+    @GET("/v2/news")
     Call<BaseModel<NewsCombined>> getNews();
 
-    @GET("/news")
+    @GET("/v2/news")
     Call<BaseModel<NewsCombined>> getNews(@Query("language") String language);
 
-    @GET("/news/br")
+    @GET("/v2/news/br")
     Call<BaseModel<NewsTab>> getNewsBr();
 
-    @GET("/news/br")
+    @GET("/v2/news/br")
     Call<BaseModel<NewsTab>> getNewsBr(@Query("language") String language);
 
-    @GET("/news/stw")
+    @GET("/v2/news/stw")
     Call<BaseModel<NewsTab>> getNewsStw();
 
-    @GET("/news/stw")
+    @GET("/v2/news/stw")
     Call<BaseModel<NewsTab>> getNewsStw(@Query("language") String language);
 
-    @GET("/news/creative")
+    @GET("/v2/news/creative")
     Call<BaseModel<NewsTab>> getNewsCreative();
 
-    @GET("/news/creative")
+    @GET("/v2/news/creative")
     Call<BaseModel<NewsTab>> getNewsCreative(@Query("language") String language);
 
 }

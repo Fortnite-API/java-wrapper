@@ -2,7 +2,6 @@ package com.thoo.api.objects;
 
 import com.thoo.api.exceptions.InvalidAPIKeyException;
 import com.thoo.api.model.ExceptionModel;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 import java.util.function.Consumer;

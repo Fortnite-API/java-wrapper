@@ -2,9 +2,9 @@ package com.thoo.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public enum BrCosmeticRarity {
+public final class BrCosmeticRarity {
 
-    @SerializedName("frozen") FROZEN,
+    /*@SerializedName("frozen") FROZEN,
     @SerializedName("lava") LAVA,
     @SerializedName("legendary") LEGENDARY,
     @SerializedName("dark") DARK,
@@ -16,6 +16,10 @@ public enum BrCosmeticRarity {
     @SerializedName("epic") EPIC,
     @SerializedName("rare") RARE,
     @SerializedName("uncommon") UNCOMMON,
-    @SerializedName("common") COMMON,
+    @SerializedName("common") COMMON*/
+
+    public String value;
+    public String displayValue;
+    public String backendValue;
 
 }

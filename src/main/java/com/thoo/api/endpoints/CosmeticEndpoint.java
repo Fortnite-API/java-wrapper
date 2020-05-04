@@ -12,12 +12,12 @@ import java.util.Optional;
 
 public final class CosmeticEndpoint extends Endpoint<CosmeticService> {
 
-    public CosmeticEndpoint(){
-        super(CosmeticService.class);
+    public CosmeticEndpoint(Language defaultLanguage){
+        super(CosmeticService.class, defaultLanguage);
     }
 
     public FortniteResponse<BaseModel<BrCosmetic[]>> getCosmetics(){
-        return HttpUtils.parse(service.getCosmetics());
+        return HttpUtils.parse(service.getCosmetics(defaultLanguage.code));
     }
 
     public FortniteResponse<BaseModel<BrCosmetic[]>> getCosmetics(Language language){
@@ -25,7 +25,7 @@ public final class CosmeticEndpoint extends Endpoint<CosmeticService> {
     }
 
     public FortniteResponse<BaseModel<BrCosmetic>> getCosmeticByID(String id){
-        return HttpUtils.parse(service.getCosmeticsByID(id));
+        return HttpUtils.parse(service.getCosmeticsByID(id, defaultLanguage.code));
     }
 
     public FortniteResponse<BaseModel<BrCosmetic>> getCosmeticByID(String id, Language language){
@@ -33,7 +33,7 @@ public final class CosmeticEndpoint extends Endpoint<CosmeticService> {
     }
 
     public Optional<BrCosmetic> getCosmeticByName(String name){
-        return getCosmeticByName(name, Language.EN);
+        return getCosmeticByName(name, defaultLanguage);
     }
 
     public Optional<BrCosmetic> getCosmeticByName(String name, Language language){

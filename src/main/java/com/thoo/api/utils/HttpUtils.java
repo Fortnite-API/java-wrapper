@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoo.api.FortniteAPIImpl;
 import com.thoo.api.enums.Language;
-import com.thoo.api.exceptions.FortniteException;
 import com.thoo.api.model.BaseModel;
 import com.thoo.api.model.ExceptionModel;
 import com.thoo.api.objects.FortniteResponse;

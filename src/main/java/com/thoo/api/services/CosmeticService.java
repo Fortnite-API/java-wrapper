@@ -9,15 +9,15 @@ import retrofit2.http.Query;
 
 public interface CosmeticService {
 
-    @GET("/cosmetics/br")
+    @GET("/v2/cosmetics/br")
     Call<BaseModel<BrCosmetic[]>> getCosmetics();
 
-    @GET("/cosmetics/br")
+    @GET("/v2/cosmetics/br")
     Call<BaseModel<BrCosmetic[]>> getCosmetics(@Query("language") String language);
 
-    @GET("/cosmetics/br/{id}")
+    @GET("/v2/cosmetics/br/{id}")
     Call<BaseModel<BrCosmetic>> getCosmeticsByID(@Path("id") String id);
 
-    @GET("/cosmetics/br/{id}")
+    @GET("/v2/cosmetics/br/{id}")
     Call<BaseModel<BrCosmetic>> getCosmeticsByID(@Path("id") String id, @Query("language") String language);
 }

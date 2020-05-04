@@ -10,13 +10,13 @@ public interface CCService {
 
     String BASE_URL = "https://fortnite-api.com/";
 
-    @GET("/creatorcode")
+    @GET("/v2/creatorcode")
     Call<BaseModel<CreatorModel>> get(@Query("slug") String slug);
 
-    @GET("/creatorcode/search")
+    @GET("/v2/creatorcode/search")
     Call<BaseModel<CreatorModel>> search(@Query("slug") String slug);
 
-    @GET("/creatorcode/search/all")
+    @GET("/v2/creatorcode/search/all")
     Call<BaseModel<CreatorModel[]>> searchAll(@Query("slug") String slug);
 
 }

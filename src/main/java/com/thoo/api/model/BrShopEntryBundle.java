@@ -1,8 +1,7 @@
 package com.thoo.api.model;
 
-public final class BrCosmeticVariantOption {
+public final class BrShopEntryBundle {
 
-    public String tag;
     public String name;
     public String image;
 

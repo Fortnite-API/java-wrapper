@@ -8,10 +8,10 @@ import retrofit2.http.Query;
 
 public interface ShopService {
 
-    @GET("/shop/br")
+    @GET("/v2/shop/br")
     Call<BaseModel<BrShop>> shop();
 
-    @GET("/shop/br")
+    @GET("/v2/shop/br")
     Call<BaseModel<BrShop>> shop(@Query("language") String language);
 
 }

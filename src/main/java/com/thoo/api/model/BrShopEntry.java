@@ -4,12 +4,15 @@ public final class BrShopEntry {
 
     public int regularPrice;
     public int finalPrice;
-    public boolean isBundle;
-    public boolean isSpecial;
+    public BrShopEntryBundle bundle;
+    public BrShopEntryBanner banner;
+    public boolean giftable;
     public boolean refundable;
-    public int panel;
     public int sortPriority;
-    public String banner;
+    public String[] categories;
+    public String devName;
+    public String offerId;
+    public String displayAssetPath;
     public BrCosmetic[] items;
 
 }

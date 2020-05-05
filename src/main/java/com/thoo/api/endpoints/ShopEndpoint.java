@@ -21,4 +21,12 @@ public final class ShopEndpoint extends Endpoint<ShopService> {
         return HttpUtils.parse(service.shop(language.code));
     }
 
+    public FortniteResponse<BaseModel<BrShop>> getShopCombined(){
+        return getShopCombined(defaultLanguage);
+    }
+
+    public FortniteResponse<BaseModel<BrShop>> getShopCombined(Language language){
+        return HttpUtils.parse(service.shop(language.code));
+    }
+
 }

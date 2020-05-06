@@ -55,9 +55,9 @@ public final class HttpUtils {
         }
 
         public okhttp3.Response intercept(Chain chain) throws IOException {
-            Request request = chain.request().newBuilder()
-                    .header("x-api-key", apiKey).build();
-            return chain.proceed(request);
+            Request.Builder requestBuilder = chain.request().newBuilder();
+            if(apiKey != null) requestBuilder.header("x-api-key", apiKey);
+            return chain.proceed(requestBuilder.build());
         }
 
     }

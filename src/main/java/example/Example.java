@@ -3,7 +3,6 @@ package example;
 import com.thoo.api.FortniteAPI;
 import com.thoo.api.FortniteAPIBuilder;
 import com.thoo.api.enums.Language;
-import com.thoo.api.utils.HttpUtils;
 
 public final class Example {
 

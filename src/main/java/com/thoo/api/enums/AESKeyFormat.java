@@ -1,4 +1,4 @@
-package com.thoo.api.model;
+package com.thoo.api.enums;
 
 public enum AESKeyFormat {
 

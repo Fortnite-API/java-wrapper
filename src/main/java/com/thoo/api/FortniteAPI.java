@@ -14,4 +14,6 @@ public interface FortniteAPI {
 
     NewsEndpoint getNewsEndpoint();
 
+    StatsEndpoint getStatsEndpoint();
+
 }

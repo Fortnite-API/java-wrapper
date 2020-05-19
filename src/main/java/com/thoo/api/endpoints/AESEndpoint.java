@@ -1,6 +1,6 @@
 package com.thoo.api.endpoints;
 
-import com.thoo.api.model.AESKeyFormat;
+import com.thoo.api.enums.AESKeyFormat;
 import com.thoo.api.model.AESModel;
 import com.thoo.api.model.BaseModel;
 import com.thoo.api.objects.FortniteResponse;

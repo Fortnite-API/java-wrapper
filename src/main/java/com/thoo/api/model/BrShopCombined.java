@@ -4,7 +4,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Date;
 
-public class BrShopCombined {
+public final class BrShopCombined {
 
     public String hash;
     public Date date;

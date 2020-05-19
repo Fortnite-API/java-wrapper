@@ -6,13 +6,14 @@ import com.thoo.api.utils.HttpUtils;
 
 public final class FortniteAPIImpl implements FortniteAPI {
 
-    private String apiKey;
+    private final String apiKey;
 
-    private AESEndpoint aesEndpoint;
-    private CreatorCodeEndpoint creatorCodeEndpoint;
-    private CosmeticEndpoint cosmeticEndpoint;
-    private ShopEndpoint shopEndpoint;
-    private NewsEndpoint newsEndpoint;
+    private final AESEndpoint aesEndpoint;
+    private final CreatorCodeEndpoint creatorCodeEndpoint;
+    private final CosmeticEndpoint cosmeticEndpoint;
+    private final ShopEndpoint shopEndpoint;
+    private final NewsEndpoint newsEndpoint;
+    private final StatsEndpoint statsEndpoint;
 
     public FortniteAPIImpl(String apiKey, Language defaultLanguage){
         this.apiKey = apiKey;
@@ -22,6 +23,7 @@ public final class FortniteAPIImpl implements FortniteAPI {
         this.cosmeticEndpoint = new CosmeticEndpoint(defaultLanguage);
         this.shopEndpoint = new ShopEndpoint(defaultLanguage);
         this.newsEndpoint = new NewsEndpoint(defaultLanguage);
+        this.statsEndpoint = new StatsEndpoint(defaultLanguage);
     }
 
     public String getApiKey() {
@@ -51,6 +53,11 @@ public final class FortniteAPIImpl implements FortniteAPI {
     @Override
     public NewsEndpoint getNewsEndpoint() {
         return newsEndpoint;
+    }
+
+    @Override
+    public StatsEndpoint getStatsEndpoint() {
+        return statsEndpoint;
     }
 
 }

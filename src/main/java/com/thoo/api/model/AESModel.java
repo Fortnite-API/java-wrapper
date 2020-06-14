@@ -6,7 +6,7 @@ public final class AESModel {
 
     public String build;
     public String mainKey;
-    public DynamicPak[] dynamicPaks;
+    public DynamicPak[] dynamicKeys;
     public Date updated;
 
     public final static class DynamicPak {

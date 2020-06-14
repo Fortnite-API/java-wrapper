@@ -6,7 +6,7 @@ import com.thoo.api.services.StatsService;
 import com.thoo.api.utils.HttpUtils;
 import org.jetbrains.annotations.NotNull;
 
-public class StatsSearcherId extends StatsSearcher {
+public final class StatsSearcherId extends StatsSearcher {
 
     private String accountId;
 

@@ -2,13 +2,8 @@ package example;
 
 import com.thoo.api.FortniteAPI;
 import com.thoo.api.FortniteAPIBuilder;
-import com.thoo.api.enums.ImageType;
 import com.thoo.api.enums.Language;
-import com.thoo.api.enums.TimeWindow;
-import com.thoo.api.model.AccountType;
-import com.thoo.api.model.BaseModel;
-import com.thoo.api.model.StatsModel;
-import com.thoo.api.objects.FortniteResponse;
+import com.thoo.api.utils.HttpUtils;
 
 public final class Example {
 
@@ -20,10 +15,7 @@ public final class Example {
 
     private void init() {
         this.api = new FortniteAPIBuilder().setKey("").setDefaultLanguage(Language.EN).build();
-        FortniteResponse<BaseModel<StatsModel>> response = api.getStatsEndpoint().getStatsByID("")
-            .setImageType(ImageType.ALL).setAccountType(AccountType.PC).setTimeWindow(TimeWindow.LIFETIME).send();
-        StatsModel model = response.getModel().data;
-        System.out.println(model.battlePass.level);
+        System.out.println(HttpUtils.gson.toJson(api.getAESEndpoint().getAES().getModel().data));
     }
 
     public static void main(String[] args) {

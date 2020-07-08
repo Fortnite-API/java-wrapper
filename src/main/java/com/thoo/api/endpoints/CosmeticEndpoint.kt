@@ -24,10 +24,16 @@ class CosmeticEndpoint(retrofit: Retrofit, private val client: OkHttpClient, pri
     @JvmOverloads
     fun searchCosmetic(query: QueryBuilder, language: Language = defaultLang): BaseModel<Cosmetic> {
         var url = "https://fortnite-api.com/v2/cosmetics/br/search"
-        for(field in query::class.java.declaredFields){
+        var j = 0
+        for(i in query::class.java.declaredFields.indices){
+            val field = query::class.java.declaredFields[i]
             field.isAccessible = true
             val value = field.get(query)
-            if(value != null) url += "?${field.name}=$value"
+            if(value != null) {
+                url += "${if (j == 0) "?" else "&"}${field.name}=$value"
+                j++
+            }
+
         }
         println(url)
         val requestBuilder = Request.Builder().url(url)

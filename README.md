@@ -3,9 +3,9 @@ This wrapper is wrote in Kotlin but is fully supported in Java. But Kotlin is ve
 
 NOTE: This is not supported for Java 12+
 
-#Examples
+# Examples
 
-######Java:
+###### Java:
 ```java
 // Creates a new instance of the FortniteAPI class
 FortniteAPI api = new FortniteAPI.Builder()
@@ -21,7 +21,7 @@ for(Cosmetic cosmetic : cosmetics){
     System.out.println(cosmetic.name);
 }
 ```
-######Kotlin
+###### Kotlin
 ```kotlin
 // Creates a new instance of the FortniteAPI class
 val api: FortniteAPI = FortniteAPI.Builder()

@@ -5,7 +5,7 @@ import com.thoo.api.enums.MatchMethod
 
 class QueryBuilder(
         internal var searchLanguage: Language? = null,
-        internal var mathMethod: MatchMethod ? = null,
+        internal var matchMethod: MatchMethod ? = null,
         internal var id: String? = null,
         internal var name: String? = null,
         internal var description: String? = null,

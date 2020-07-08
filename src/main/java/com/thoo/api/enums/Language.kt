@@ -18,4 +18,6 @@ enum class Language(val code: String) {
     ZHCN("zh-CN"),
     ZHHANT("zh-Hant");
 
+    override fun toString(): String = code
+
 }

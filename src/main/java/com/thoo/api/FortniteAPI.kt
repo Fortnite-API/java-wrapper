@@ -48,7 +48,7 @@ class FortniteAPI private constructor(
             .client(client).build()
 
     private val aesEndpoint = AESEndpoint(retrofit)
-    private val cosmeticEndpoint = CosmeticEndpoint(retrofit, language)
+    private val cosmeticEndpoint = CosmeticEndpoint(retrofit, client, language)
     private val newsEndpoint = NewsEndpoint(retrofit, language)
     private val createCodeEndpoint = CreatorCodeEndpoint(retrofit)
 

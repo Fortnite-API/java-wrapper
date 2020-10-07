@@ -8,8 +8,8 @@ object TestKotlin {
         val api = FortniteAPI.create(
                 language = Language.DE
         )
-        api.cosmetic.getCosmetics().data.forEach {
-            println(it.name)
+        api.cosmetic.searchCosmetic {
+            name = "Test"
         }
     }
 

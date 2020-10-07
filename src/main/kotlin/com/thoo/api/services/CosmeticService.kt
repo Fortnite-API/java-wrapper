@@ -12,4 +12,9 @@ interface CosmeticService: EndpointService {
             @Query("language") language: String
     ): FCall<List<Cosmetic>>
 
+    @GET("/v2/cosmetics/br/new")
+    fun getNewCosmetics(
+            @Query("language") language: String
+    ): FCall<List<Cosmetic>>
+
 }

@@ -1,11 +1,14 @@
 import com.thoo.api.FortniteAPI;
-
-import java.io.File;
+import kotlin.Unit;
 
 public final class TestJava {
 
     public static void main(String[] args) {
         FortniteAPI api = FortniteAPI.create();
+        api.cosmetic.searchCosmetic(cosmetic  -> {
+            cosmetic.name = "Test";
+            return Unit.INSTANCE;
+        });
     }
 
 }

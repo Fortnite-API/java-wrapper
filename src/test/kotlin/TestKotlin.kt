@@ -10,7 +10,7 @@ object TestKotlin {
                 language = Language.DE
         )
         val cosmetic = api.cosmetic.searchCosmetic {
-            hasVariants = true
+            name = "tsdfsdfs"
         }
         println(cosmetic.data.name)
     }

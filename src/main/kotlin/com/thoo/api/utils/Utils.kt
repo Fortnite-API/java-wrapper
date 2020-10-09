@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.thoo.api.exceptions.FortniteApiException
 import com.thoo.api.models.BaseModel
-import com.thoo.api.models.Cosmetic
+import com.thoo.api.models.ExceptionModel
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Call
@@ -15,7 +15,6 @@ import java.io.InputStream
 import kotlin.jvm.Throws
 
 typealias FCall<T> = Call<BaseModel<T>>
-typealias CList = BaseModel<List<Cosmetic>>
 
 val gson = Gson()
 
@@ -29,7 +28,11 @@ internal inline fun <reified T> Call<BaseModel<T>>.send(): BaseModel<T> {
 @Throws(FortniteApiException::class)
 internal inline fun <reified T> Request.sendOkHttp(client: OkHttpClient): T {
     val response = client.newCall(this).execute()
-    if(!response.isSuccessful) throw gson.fromJson(response.body()?.string() ?: "{}", FortniteApiException::class.java)
+    if(!response.isSuccessful) {
+        val model = gson.fromJson<ExceptionModel>(response.body()?.string() ?: "{}")
+        val error = FortniteApiException(model.status, model.error)
+        throw error
+    }
     return gson.fromJson(response.body()?.string() ?: "{}")
 }
 

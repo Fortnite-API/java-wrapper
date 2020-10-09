@@ -2,7 +2,7 @@ package com.thoo.api.models
 
 import java.util.*
 
-data class Playlist(
+class Playlist(
         val id: String,
         val name: String,
         val subName: String,
@@ -25,7 +25,7 @@ data class Playlist(
         val added: Date
 )
 
-data class PlaylistImages(
+class PlaylistImages(
         val showcase: String,
         val missionIcon: String
 )

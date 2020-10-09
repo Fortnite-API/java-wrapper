@@ -3,6 +3,7 @@ package com.thoo.api.endpoints
 import com.google.gson.Gson
 import com.thoo.api.FortniteAPI
 import com.thoo.api.enums.Language
+import com.thoo.api.exceptions.FortniteApiException
 import com.thoo.api.models.BaseModel
 import com.thoo.api.models.Cosmetic
 import com.thoo.api.models.CosmeticSearchProperties
@@ -14,6 +15,7 @@ import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Retrofit
+import kotlin.jvm.Throws
 
 @SuppressWarnings("unused")
 class CosmeticEndpoints(
@@ -23,12 +25,15 @@ class CosmeticEndpoints(
         private val httpClient: OkHttpClient
 ): EndpointBase<CosmeticService>(retrofit, clazz) {
 
+    @Throws(FortniteApiException::class)
     @JvmOverloads fun getCosmetics(language: Language = this.language) =
             service.getCosmetics(language.code).send()
 
+    @Throws(FortniteApiException::class)
     @JvmOverloads fun getNewCosmetics(language: Language = this.language) =
             service.getNewCosmetics(language.code).send()
 
+    @Throws(FortniteApiException::class)
     @JvmOverloads
     fun searchCosmetic(language: Language = this.language, propertiesReceiver: CosmeticSearchProperties.() -> Unit): BaseModel<Cosmetic> {
         val properties = CosmeticSearchProperties()
@@ -54,6 +59,7 @@ class CosmeticEndpoints(
         return request.sendOkHttp(httpClient)
     }
 
+    @Throws(FortniteApiException::class)
     @JvmOverloads
     fun searchCosmetics(language: Language = this.language, propertiesReceiver: CosmeticSearchProperties.() -> Unit): BaseModel<MutableList<Cosmetic>> {
         val properties = CosmeticSearchProperties()

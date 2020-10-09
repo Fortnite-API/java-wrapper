@@ -1,5 +1,12 @@
 package com.thoo.api.exceptions
 
 class FortniteApiException(
-    message: String?
-): Exception(message ?: "Unknown.")
+        status: Int,
+        error: String
+): Exception("$error (${status})") {
+
+    init {
+        println("$error (${status})")
+    }
+
+}

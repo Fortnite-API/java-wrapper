@@ -1,6 +1,6 @@
 package com.thoo.api.models
 
-class BaseModel<T>(
+class ExceptionModel(
         val status: Int,
-        val data: T
+        val error: String
 )

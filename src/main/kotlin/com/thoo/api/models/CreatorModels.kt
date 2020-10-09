@@ -1,13 +1,13 @@
 package com.thoo.api.models
 
-data class Creator(
+class Creator(
         val code: String,
         val account: CreatorAccount,
         val status: String,
         val verified: Boolean
 )
 
-data class CreatorAccount(
+class CreatorAccount(
         val id: String,
         val name: String
 )

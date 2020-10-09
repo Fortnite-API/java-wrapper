@@ -1,6 +1,6 @@
 package com.thoo.api.models
 
-data class Banner(
+class Banner(
         val id: String,
         val devName: String,
         val name: String,
@@ -10,12 +10,12 @@ data class Banner(
         val images: BannerImages
 )
 
-data class BannerImages(
+class BannerImages(
         val smallIcon: String,
         val icon: String
 )
 
-data class BannerColor(
+class BannerColor(
         val id: String,
         val color: String,
         val category: String,

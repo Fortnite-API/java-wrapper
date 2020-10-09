@@ -3,10 +3,4 @@ package com.thoo.api.exceptions
 class FortniteApiException(
         status: Int,
         error: String
-): Exception("$error (${status})") {
-
-    init {
-        println("$error (${status})")
-    }
-
-}
+): Exception("$error (${status})")

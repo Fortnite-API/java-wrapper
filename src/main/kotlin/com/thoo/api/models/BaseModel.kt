@@ -1,6 +1,6 @@
 package com.thoo.api.models
 
 data class BaseModel<T>(
-        val code: Int,
+        val status: Int,
         val data: T
 )

@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class FortniteAPI private constructor(
     private val apiKey: String?,
     language: Language,
-    httpClient: OkHttpClient
+    private val httpClient: OkHttpClient
 ) {
 
     // The `/v2/` is a bug fix but won't actually get applied
@@ -27,7 +27,7 @@ class FortniteAPI private constructor(
     @JvmField val playlist = PlaylistEndpoints(retrofit, PlaylistService::class.java, language)
     @JvmField val banner = BannerEndpoints(retrofit, BannerService::class.java, language)
     @JvmField val creator = CreatorEndpoints(retrofit, CreatorService::class.java)
-    @JvmField val cosmetic = CosmeticEndpoints(retrofit, CosmeticService::class.java, language)
+    @JvmField val cosmetic = CosmeticEndpoints(retrofit, CosmeticService::class.java, language, httpClient)
 
     companion object {
 

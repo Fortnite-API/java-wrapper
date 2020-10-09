@@ -7,6 +7,7 @@ import com.thoo.api.models.BaseModel
 import com.thoo.api.models.Cosmetic
 import com.thoo.api.models.CosmeticSearchProperties
 import com.thoo.api.services.CosmeticService
+import com.thoo.api.utils.gson
 import com.thoo.api.utils.send
 import com.thoo.api.utils.sendOkHttp
 import okhttp3.HttpUrl
@@ -54,7 +55,7 @@ class CosmeticEndpoints(
     }
 
     @JvmOverloads
-    fun searchCosmetics(language: Language = this.language, propertiesReceiver: CosmeticSearchProperties.() -> Unit): BaseModel<List<Cosmetic>> {
+    fun searchCosmetics(language: Language = this.language, propertiesReceiver: CosmeticSearchProperties.() -> Unit): BaseModel<MutableList<Cosmetic>> {
         val properties = CosmeticSearchProperties()
         propertiesReceiver.invoke(properties)
         val clazz = properties.javaClass

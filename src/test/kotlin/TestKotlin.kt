@@ -1,3 +1,4 @@
+import com.google.gson.Gson
 import com.thoo.api.FortniteAPI
 import com.thoo.api.enums.Language
 
@@ -9,9 +10,9 @@ object TestKotlin {
                 language = Language.DE
         )
         val cosmetic = api.cosmetic.searchCosmetic {
-            name = "aura"
+            hasVariants = true
         }
-        println(cosmetic.data.id)
+        println(cosmetic.data.name)
     }
 
 }

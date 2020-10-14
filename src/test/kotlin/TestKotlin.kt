@@ -1,4 +1,3 @@
-import com.google.gson.Gson
 import com.thoo.api.FortniteAPI
 import com.thoo.api.enums.Language
 

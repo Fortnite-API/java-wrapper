@@ -8,6 +8,7 @@ import com.thoo.api.utils.send
 import okhttp3.OkHttpClient
 import org.jetbrains.annotations.NotNull
 import retrofit2.Retrofit
+import java.io.BufferedInputStream
 import java.io.File
 import kotlin.jvm.Throws
 
@@ -27,7 +28,7 @@ class MapEndpoints(
     fun downloadMap(@NotNull file: File) {
         if(file.exists()) throw FileAlreadyExistsException(file)
         val body = service.downloadMap().execute().body()!!
-        download(body.byteStream(), file)
+        download(BufferedInputStream(body.byteStream()), file)
     }
 
 }

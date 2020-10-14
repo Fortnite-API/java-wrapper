@@ -9,6 +9,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Response
+import java.io.BufferedInputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -44,7 +45,7 @@ internal fun Response<*>.parseApiError(): FortniteApiException {
     return gson.fromJson(json, FortniteApiException::class.java)
 }
 
-internal fun download(byteStream: InputStream, file: File): Int {
+internal fun download(byteStream: BufferedInputStream, file: File): Int {
     val reader = ByteArray(4096)
     var fileSizeDownloaded = 0
     val output = FileOutputStream(file)

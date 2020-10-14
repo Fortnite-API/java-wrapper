@@ -19,8 +19,4 @@ class AESEndpoints(
     @JvmOverloads fun getAes(keyFormat: KeyFormat = KeyFormat.HEX): BaseModel<AesModel> =
             service.getAes(keyFormat.code).send()
 
-    @Throws(FortniteApiException::class)
-    @JvmOverloads suspend fun getAesAsync(keyFormat: KeyFormat = KeyFormat.HEX): BaseModel<AesModel> =
-            service.getAesAsync(keyFormat.code)
-
 }

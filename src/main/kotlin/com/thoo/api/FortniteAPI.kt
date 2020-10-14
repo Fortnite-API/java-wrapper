@@ -12,14 +12,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 class FortniteAPI private constructor(
     private val apiKey: String?,
     language: Language,
-    private val httpClient: OkHttpClient
+    httpClient: OkHttpClient
 ) {
 
-    // The `/v2/` is a bug fix but won't actually get applied
     private val retrofit = Retrofit.Builder()
-            .baseUrl("https://fortnite-api.com/v2/")
+            .baseUrl("https://fortnite-api.com/")
             .client(httpClient)
-            //.addCallAdapterFactory(ApiCallAdapterFactory())
             .addConverterFactory(GsonConverterFactory.create()).build()
 
     @JvmField val aes = AESEndpoints(retrofit, AESService::class.java)

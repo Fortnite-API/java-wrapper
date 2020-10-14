@@ -14,11 +14,6 @@ interface MapService: EndpointService {
             @Query("language") language: String
     ): FCall<FMap>
 
-    /*@GET("/v1/map")
-    suspend fun getMapAsync(
-            @Query("language") language: String
-    ): FMap*/
-
     @GET("/images/map.png")
     fun downloadMap(): Call<ResponseBody>
 

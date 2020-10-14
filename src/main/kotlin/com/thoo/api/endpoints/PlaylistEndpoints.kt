@@ -18,14 +18,8 @@ class PlaylistEndpoints(
     @JvmOverloads fun getPlaylists(language: Language = this.language) =
             service.getPlaylists(language.code).send()
 
-    /*@JvmOverloads suspend fun getPlaylistsAsync(language: Language = this.language) =
-            service.getPlaylistsAsync(language.code)*/
-
     @Throws(FortniteApiException::class)
     @JvmOverloads fun getPlaylistById(id: String, language: Language = this.language) =
             service.getPlaylistById(id, language.code).send()
-
-    /*@JvmOverloads suspend fun getPlaylistByIdAsync(id: String, language: Language = this.language) =
-            service.getPlaylistByIdAsync(id, language.code)*/
 
 }

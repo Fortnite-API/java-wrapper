@@ -9,7 +9,7 @@ object TestKotlin {
                 language = Language.DE
         )
         val cosmetic = api.cosmetic.searchCosmetic {
-            name = "tsdfsdfs"
+            name = "Aura"
         }
         println(cosmetic.data.name)
     }

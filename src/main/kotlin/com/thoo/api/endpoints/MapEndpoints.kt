@@ -24,9 +24,6 @@ class MapEndpoints(
     @JvmOverloads fun getMap(language: Language = this.language) =
             service.getMap(language.code).send()
 
-    /*@JvmOverloads suspend fun getMapAsync(language: Language = this.language) =
-            service.getMapAsync(language.code)*/
-
     fun downloadMap(@NotNull file: File) {
         if(file.exists()) throw FileAlreadyExistsException(file)
         val body = service.downloadMap().execute().body()!!

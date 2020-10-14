@@ -13,21 +13,10 @@ interface PlaylistService: EndpointService {
             @Query("language") language: String
     ): FCall<List<Playlist>>
 
-    /*@GET("/v1/playlists")
-    suspend fun getPlaylistsAsync(
-            @Query("language") language: String
-    ): List<Playlist>*/
-
     @GET("/v1/playlists/{id}")
     fun getPlaylistById(
             @Path("id") id: String,
             @Query("language") language: String
     ): FCall<Playlist>
-
-    /*@GET("/v1/playlists/{id}")
-    suspend fun getPlaylistByIdAsync(
-            @Path("id") id: String,
-            @Query("language") language: String
-    ): Playlist*/
 
 }

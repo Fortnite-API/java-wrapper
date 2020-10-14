@@ -13,9 +13,4 @@ interface AESService: EndpointService {
         @Query("keyFormat") code: String
     ): FCall<AesModel>
 
-    @GET("/v2/aes")
-    suspend fun getAesAsync(
-            @Query("keyFormat") code: String
-    ): BaseModel<AesModel>
-
 }
